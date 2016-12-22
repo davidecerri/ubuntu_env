@@ -1,0 +1,40 @@
+# ubuntu packages
+---
+
+- name: Add ppa repos
+  apt_repository:
+    repo: "{{ item }}"
+  with_items: "{{ apt_ppa_repos }}"
+
+- name: Update apt cache
+  apt: update_cache=yes
+  changed_when: False
+
+# - name: Install default packages
+#   apt:
+#     name: "{{ item['key'] }}={{item['value']}}"
+#     state: present
+#   with_dict: "{{ apt_packages_versioned }}"
+
+- name: Install default packages unversioned
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ apt_packages_unversioned }}"
+
+# - name: Install extensions
+#   gnome_shell_extension:
+#     id: "{{ item }}"
+#     gnome_extension_path: "{{ gnome_extension_path }}"
+#   become: yes
+#   become_user: "{{ gnome_extension_owner }}"
+#   with_items: "{{ gnome_shell_extensions }}"
+#   notify: reload gnome-shell
+
+- name: "set zsh for user {{ ubuntu_user }}"
+  user:
+    name: "{{ item }}"
+    shell: /bin/zsh
+  with_items:
+    - root
+    - "{{ ubuntu_user }}"

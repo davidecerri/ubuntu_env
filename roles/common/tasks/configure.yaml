@@ -1,0 +1,34 @@
+---
+
+
+# install oh_my_zsh
+- name: Clone oh-my-zsh repo
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: "{{ user_home }}/.oh-my-zsh"
+
+
+- name: remove standard zshrc
+  file:
+    path: "{{ user_home }}/.zshrc"
+    state: absent
+
+- name: Create conf folder in home directory
+  file:
+    path: "{{ user_home }}/conf/"
+    state: directory
+    owner: "{{ ubuntu_user }}"
+
+- name: deploy .zshrc
+  template:
+    src: files/zshrc.in
+    dest: "{{ user_home }}/conf/zshrc"
+    owner: "{{ ubuntu_user }}"
+        
+
+- name: symlink zshrc
+  file:
+    path: "{{ user_home }}/.zshrc"
+    src: "{{ user_home }}/conf/zshrc"
+    state: link
+    owner: "{{ ubuntu_user }}"

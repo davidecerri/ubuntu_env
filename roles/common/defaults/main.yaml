@@ -1,0 +1,54 @@
+ubuntu_user: davide
+user_home: "/home/{{ ubuntu_user }}"
+
+apt_packages_unversioned:
+  # system
+  - build-essential
+  - htop
+  - iotop
+  - iftop
+  - curl
+  - git
+  - git-core
+  - silversearcher-ag
+  - tig
+  - zsh 
+
+  # applications
+  - tmux
+  - tilix
+  - emacs
+
+  # gnome
+  - ubuntu-gnome-desktop
+  - paper-icon-theme
+  - paper-cursor-theme
+  - paper-gtk-theme
+  - papirus-icon-theme
+  - gnome-shell-pomodoro
+
+apt_packages_versioned:
+  python-dev: 2.7.5-5ubuntu3
+
+# PPA
+apt_ppa_repos:
+  - ppa:snwh/pulp # paper gnome theme
+  - ppa:papirus/papirus # papirus icon theme
+  - ppa:webupd8team/terminix # tilix
+
+# defaults file for ansible-gnome_shell
+# gnome shell extension site URL
+GNOME_SITE: https://extensions.gnome.org
+
+gnome_extension_path: "{{ user_home }}/.local/share/gnome-shell/extensions/" # "/usr/share/gnome-shell/extensions/"
+gnome_extension_owner: "{{ ubuntu_user }}"
+gnome_shell_extensions:
+  - 6 # application Menu
+  - 517 # caffeine
+  - 779 # clipboard indicator
+  - 307 # dash to dock
+  - 104 # net speed
+  - 906 # sound input & output devide chooser
+  - 1031 # topicons+
+  - 19 # user themes
+  - 118 # not top left hot corner

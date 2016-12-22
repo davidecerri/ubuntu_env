@@ -1,0 +1,8 @@
+---
+
+- include: install.yaml
+  become: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- include: configure.yaml
+  
