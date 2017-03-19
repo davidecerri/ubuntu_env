@@ -1,0 +1,10 @@
+galaxy_info:
+  author: funtimes
+  description: install a bunch of crap to use the raspberry pi as an auto video player
+  company: funtimes inc
+  license: GPLv2
+
+  min_ansible_version: 1.2
+
+
+dependencies: []

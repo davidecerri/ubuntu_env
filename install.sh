@@ -16,4 +16,4 @@ fi
    cd  ~/.ansible_desktop_configuration_src
    git pull
 
-   ansible-playbook -i hosts site.yml -c local -K
+   ansible-playbook -i "localhost," configuration.yml -c  local --ask-sudo-pass
