@@ -1,0 +1,14 @@
+---
+# tasks file for common
+- include: apt_based.yml
+  become: yes
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+
+- include: osx.yml
+  become: yes
+  when: ansible_distribution == 'MacOSX'
+
+- include: pip.yml
+  become: yes
+
+- meta: flush_handlers

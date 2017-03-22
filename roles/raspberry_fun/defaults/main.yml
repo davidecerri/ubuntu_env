@@ -1,0 +1,8 @@
+---
+# defaults file for raspberry_fun
+apt_packages:
+  - toilet
+  - figlet
+  - boxes
+  - youtube-dl
+  - omxplayer

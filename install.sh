@@ -2,7 +2,8 @@ CURRENT=`pwd`
 
 if [ ! -d ~/.ansible_desktop_configuration_src ] ; then
    echo "Install Dependencies"
-   sudo apt-get install -y -qq python python-dev python-pip git openssh-server libssl-dev
+   sudo apt-get update
+   sudo apt-get install -y -qq python python-dev python-pip git openssh-server libssl-dev build-essential libffi-dev
 
    echo "Install ansible"
    sudo pip install ansible
@@ -16,4 +17,4 @@ fi
    cd  ~/.ansible_desktop_configuration_src
    git pull
 
-   ansible-playbook -i hosts site.yml -c local -K
+   ansible-playbook -i "localhost," raspberry.yml -c  local --ask-sudo-pass

@@ -1,0 +1,6 @@
+---
+# tasks file for raspberry_fun
+
+- include: apt.yml
+  become: yes
+  
