@@ -1,6 +1,6 @@
 ubuntu_user: davide
 user_home: "/home/{{ ubuntu_user }}"
-
+git_repos_home: "{{ user_home }}/git_repos/"
 apt_packages_unversioned:
   # system
   - build-essential
@@ -12,8 +12,9 @@ apt_packages_unversioned:
   - git-core
   - silversearcher-ag
   - tig
-  - zsh 
-
+  - zsh
+  - ruby
+ 
   # applications
   - tmux
   - tilix
@@ -35,7 +36,7 @@ apt_ppa_repos:
   - ppa:snwh/pulp # paper gnome theme
   - ppa:papirus/papirus # papirus icon theme
   - ppa:webupd8team/terminix # tilix
-
+ 
 # defaults file for ansible-gnome_shell
 # gnome shell extension site URL
 GNOME_SITE: https://extensions.gnome.org

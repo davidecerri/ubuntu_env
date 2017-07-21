@@ -1,12 +1,42 @@
 ---
 
+# Install configuration dependencies and configure
+# hub - git wrapper for github
+# oh-my-zsh to make zsh even more awesome
+# nerd-fonts fonts including symbols
+# powerlevel9k - powerline like cli prompt
+# spacemacs - emacs layers configurations
+# tmux - configurations for tmux
+
+# install hub # depends on go, ruby and bundler to build, so i get it pre built
+- stat:
+    path: /usr/local/bin/hub
+  register: hub
+
+- debug:
+    msg: "Hub already installed"
+  when: hub.stat.exists
+
+- unarchive:
+    src: https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
+    dest: "{{ git_repos_home }}"
+    remote_src: True
+  when: hub.stat.exists == False
+
+- copy:
+    src: "{{ git_repos_home }}/hub-linux-amd64-2.2.9/bin/hub"
+    dest: /usr/local/bin
+    owner: root
+    group: root
+    mode: 0755
+  become: yes
+  when: hub.stat.exists == False
 
 # install oh_my_zsh
 - name: Clone oh-my-zsh repo
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{ user_home }}/.oh-my-zsh"
-
 
 - name: remove standard zshrc
   file:
@@ -25,10 +55,52 @@
     dest: "{{ user_home }}/conf/zshrc"
     owner: "{{ ubuntu_user }}"
         
-
 - name: symlink zshrc
   file:
     path: "{{ user_home }}/.zshrc"
     src: "{{ user_home }}/conf/zshrc"
+    state: link
+    owner: "{{ ubuntu_user }}"
+
+# install fonts SauceCodePro + icons big heavy repo
+- name: Clone nerd-fonts, takes some time.... wait. 
+  git:
+    repo: https://github.com/ryanoasis/nerd-fonts.git
+    dest: "{{ git_repos_home }}/nerd-fonts"
+
+# install of nerdfonts exit with a rc 1, so I will ignore it
+- name: install all nerd-fonts, it will throw an error. Ignore it. # a lot of space in the trash!
+  shell: "{{ git_repos_home }}/nerd-fonts/install.sh"
+  ignore_errors: yes
+
+# install Powerlevel9K
+- name: Clone powerlevel9k repo
+  git:
+    repo: https://github.com/bhilburn/powerlevel9k.git
+    dest: "{{ user_home }}/.oh-my-zsh/custom/themes/powerlevel9k"
+
+# Spacemacs
+- name: Clone spacemacs repo
+  git:
+    repo: https://github.com/syl20bnr/spacemacs
+    dest: "{{ user_home }}/conf/emacs.d"
+
+- name: symlink .emacs.d
+  file:
+    path: "{{ user_home }}/.emacs.d"
+    src: "{{ user_home }}/conf/emacs.d"
+    state: link
+    owner: "{{ ubuntu_user }}"
+
+- name: deploy .spacemacs
+  template:
+    src: files/spacemacs.in
+    dest: "{{ user_home }}/conf/spacemacs"
+    owner: "{{ ubuntu_user }}"
+
+- name: symlink spacemacs
+  file:
+    path: "{{ user_home }}/.spacemacs"
+    src: "{{ user_home }}/conf/spacemacs"
     state: link
     owner: "{{ ubuntu_user }}"
