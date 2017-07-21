@@ -104,3 +104,17 @@
     src: "{{ user_home }}/conf/spacemacs"
     state: link
     owner: "{{ ubuntu_user }}"
+
+# Tmux
+- name: deploy .tmux.conf
+  template:
+    src: files/tmux.conf.in
+    dest: "{{ user_home }}/conf/tmux.conf"
+    owner: "{{ ubuntu_user }}"
+
+- name: symlink tmux.conf
+  file:
+    path: "{{ user_home }}/.tmux.conf"
+    src: "{{ user_home }}/conf/tmux.conf"
+    state: link
+    owner: "{{ ubuntu_user }}"
