@@ -1,4 +1,7 @@
-ubuntu_user: davide
+name: davide
+ubuntu_user: "{{ name }}"
+email: davide.cerri@gmail.com
+editor: emacs
 user_home: "/home/{{ ubuntu_user }}"
 git_repos_home: "{{ user_home }}/git_repos/"
 apt_packages_unversioned:
@@ -14,6 +17,10 @@ apt_packages_unversioned:
   - tig
   - zsh
   - ruby
+  - sshuttle
+  - global
+  - ctags
+  - python-dev
  
   # applications
   - tmux
@@ -53,3 +60,7 @@ gnome_shell_extensions:
   - 1031 # topicons+
   - 19 # user themes
   - 118 # not top left hot corner
+
+pip_packages:
+  - virtualenv
+  - virtualenvwrapper

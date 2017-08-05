@@ -1,12 +1,32 @@
 ---
 
 # Install configuration dependencies and configure
+# gitconfig
 # hub - git wrapper for github
 # oh-my-zsh to make zsh even more awesome
 # nerd-fonts fonts including symbols
 # powerlevel9k - powerline like cli prompt
 # spacemacs - emacs layers configurations
 # tmux - configurations for tmux
+
+# add gitconfig
+- name: remove standard .gitconfig
+  file:
+    path: "{{ user_home }}/.gitconfig"
+    state: absent
+
+- name: deploy .gitconfig
+  template:
+    src: files/gitconfig.in
+    dest: "{{ user_home }}/conf/gitconfig"
+    owner: "{{ ubuntu_user }}"
+
+- name: symlink .gitconfig
+  file:
+    path: "{{ user_home }}/.gitconfig"
+    src: "{{ user_home }}/conf/gitconfig"
+    state: link
+    owner: "{{ ubuntu_user }}"
 
 # install hub # depends on go, ruby and bundler to build, so i get it pre built
 - stat:

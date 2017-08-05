@@ -1,6 +1,7 @@
 # source ~/.fonts/*.sh
 export DEFAULT_USER='davide'
 export TERM="xterm-256color"
+
 # TODO(Davide): move to separate file
 # Powerline Conf
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -40,6 +41,9 @@ POWERLEVEL9K_OS_ICON_BACKGROUND="206"
 POWERLEVEL9K_OS_ICON_FOREGROUND="white"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator context dir dir_writable virtualenv vcs)
+
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -200,4 +204,10 @@ SAVEHIST=10000000
 alias emacs='emacs -nw'
 
 # disable right click on touchpad
-~/.custom_config/synaptics/disable_right_click.sh
+$HOME/.custom_config/synaptics/disable_right_click.sh
+
+
+# Python
+export WORKON_HOME=~/PythonEnvs
+export PROJECT_HOME=~/Code/Python/Projects
+source /usr/local/bin/virtualenvwrapper.sh
