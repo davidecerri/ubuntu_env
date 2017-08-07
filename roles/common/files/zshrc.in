@@ -201,6 +201,7 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 
 
+alias git='hub'
 alias emacs='emacs -nw'
 
 # disable right click on touchpad
