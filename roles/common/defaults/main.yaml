@@ -21,6 +21,7 @@ apt_packages_unversioned:
   - global
   - ctags
   - python-dev
+  - libtool-bin
  
   # applications
   - tmux
