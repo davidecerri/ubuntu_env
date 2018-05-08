@@ -36,6 +36,11 @@ apt_packages_unversioned:
   - papirus-icon-theme
   - gnome-shell-pomodoro
 
+  # xclip
+  - xclip
+
+  #go
+  - golang-go
 apt_packages_versioned:
   python-dev: 2.7.5-5ubuntu3
 

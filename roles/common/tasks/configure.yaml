@@ -138,3 +138,22 @@
     src: "{{ user_home }}/conf/tmux.conf"
     state: link
     owner: "{{ ubuntu_user }}"
+
+- name: create go repo
+  file:
+    path: "{{ user_home }}/go/"
+    state: directory
+    owner: "{{ ubuntu_user }}"
+
+- name: create bin
+  file:
+    path: "{{ user_home }}/bin/"
+    state: directory
+    owner: "{{ ubuntu_user }}"
+
+- name: deploy 2fa
+  template:
+    src: files/2fa
+    dest: "{{ user_home }}/bin/2fa"
+    owner: "{{ ubuntu_user }}"
+    mode: 0755

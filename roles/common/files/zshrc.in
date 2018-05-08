@@ -207,10 +207,13 @@ alias git='hub'
 alias emacs='emacs -nw'
 
 # disable right click on touchpad
-$HOME/.custom_config/synaptics/disable_right_click.sh
+#$HOME/.custom_config/synaptics/disable_right_click.sh
 
 
 # Python
 export WORKON_HOME=~/PythonEnvs
 export PROJECT_HOME=~/Code/Python/Projects
 source /usr/local/bin/virtualenvwrapper.sh
+
+# GO
+export GOPATH=$HOME/go
