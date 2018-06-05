@@ -44,3 +44,12 @@
   pip:
     name: "{{ item }}"
   with_items: "{{ pip_packages }}"
+
+- name: Download fuzzy finder
+  git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "~/.fzf"
+    depth: 1
+
+- name: Install fuzzy finder
+  shell: "~/.fzf/install --all"

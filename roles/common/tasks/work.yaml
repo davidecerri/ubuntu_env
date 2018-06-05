@@ -1,0 +1,15 @@
+# clone ntropy repo
+- name: Clone ntropy repo
+  git:
+    repo: git@github.com:6si/ntropy.git
+    dest: "{{ git_repos_home }}/ntropy"
+
+# install glove wrapper
+- name: symlink glove
+  file:
+    path: "{{ user_home }}/bin/glove"
+    src: "{{ git_repos_home }}/ntropy/python/sixsense/glove.py"
+    state: link
+    owner: "{{ ubuntu_user }}"
+
+# install bazel

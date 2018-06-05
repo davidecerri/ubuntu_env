@@ -157,3 +157,12 @@
     dest: "{{ user_home }}/bin/2fa"
     owner: "{{ ubuntu_user }}"
     mode: 0755
+
+- name: Download fuzzy finder
+  git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "~/.fzf"
+    depth: 1
+
+- name: Install fuzzy finder
+  shell: "~/.fzf/install --all"

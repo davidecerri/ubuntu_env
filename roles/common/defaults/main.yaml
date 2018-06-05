@@ -70,3 +70,4 @@ gnome_shell_extensions:
 pip_packages:
   - virtualenv
   - virtualenvwrapper
+  - docopt
