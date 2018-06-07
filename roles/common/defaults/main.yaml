@@ -41,6 +41,10 @@ apt_packages_unversioned:
 
   #go
   - golang-go
+
+  # emacs25
+  - emacs25
+
 apt_packages_versioned:
   python-dev: 2.7.5-5ubuntu3
 
@@ -49,6 +53,7 @@ apt_ppa_repos:
   - ppa:snwh/pulp # paper gnome theme
   - ppa:papirus/papirus # papirus icon theme
   - ppa:webupd8team/terminix # tilix
+  - ppa:kelleyk/emacs # emacs25
  
 # defaults file for ansible-gnome_shell
 # gnome shell extension site URL
