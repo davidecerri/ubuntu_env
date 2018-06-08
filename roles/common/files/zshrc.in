@@ -201,10 +201,10 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 
 
-export EDITOR='emacs -nw'
+export EDITOR='emacs25 -nw'
 
 alias git='hub'
-alias emacs='emacs -nw'
+alias emacs='emacs25 -nw'
 
 # disable right click on touchpad
 #$HOME/.custom_config/synaptics/disable_right_click.sh
@@ -218,3 +218,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 # GO
 export GOPATH=$HOME/go
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Ansible
+export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ssh/.vault_pass
