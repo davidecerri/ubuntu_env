@@ -219,5 +219,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 export GOPATH=$HOME/go
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# LOAD EXTRA CREDS
+source ~/.aws/creds
+
 # Ansible
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ssh/.vault_pass
