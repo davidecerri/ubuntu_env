@@ -23,13 +23,13 @@
   with_items: "{{ apt_packages_unversioned }}"
 
 # this is commented as rerunning config causes extension to notify gnome
-# - name: Install extensions
-#   gnome_shell_extension:
-#     id: "{{ item }}"
-#     gnome_extension_path: "{{ gnome_extension_path }}"
-#   become: yes
-#   become_user: "{{ gnome_extension_owner }}"
-#   with_items: "{{ gnome_shell_extensions }}"
+- name: Install extensions
+  gnome_shell_extension:
+    id: "{{ item }}"
+    gnome_extension_path: "{{ gnome_extension_path }}"
+  become: yes
+  become_user: "{{ gnome_extension_owner }}"
+  with_items: "{{ gnome_shell_extensions }}"
 #   notify: reload gnome-shell
 
 - name: "set zsh for user {{ ubuntu_user }}"
