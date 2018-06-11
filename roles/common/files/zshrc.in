@@ -205,6 +205,8 @@ export EDITOR='emacs25 -nw'
 
 alias git='hub'
 alias emacs='emacs25 -nw'
+# this overwrite ghostscript
+alias gs='git status'
 
 # disable right click on touchpad
 #$HOME/.custom_config/synaptics/disable_right_click.sh
