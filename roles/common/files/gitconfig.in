@@ -2,7 +2,7 @@
 	email = davide.cerri@gmail.com
 	name = davide
 [core]
-	editor = emacs
+	editor = emacs25 -nw
 [push]
 	default = simple
 [alias]
