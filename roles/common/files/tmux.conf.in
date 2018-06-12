@@ -15,3 +15,5 @@ set -g mouse off
 # don't rename windows automatically
 set-option -g allow-rename off
 
+# reload config
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
