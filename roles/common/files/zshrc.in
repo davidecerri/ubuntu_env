@@ -226,3 +226,8 @@ source ~/.aws/creds
 
 # Ansible
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ssh/.vault_pass
+
+# ssh keys add to agent
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/6si_staging
+ssh-add ~/.ssh/6si-aws.pem
