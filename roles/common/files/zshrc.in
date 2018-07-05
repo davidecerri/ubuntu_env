@@ -200,6 +200,16 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 
+# ZSH OPTIONS
+setopt \
+  NO_BEEP \
+  HIST_IGNORE_DUPS \
+  `# If the internal history needs to be trimmed to add the current command line, setting this option will cause the oldest history event that has a duplicate to be lost before losing a unique event` \
+  HIST_EXPIRE_DUPS_FIRST \
+  `# remove command lines from the history list when the first character on the line is a space` \
+  HIST_IGNORE_SPACE
+
+
 
 export EDITOR='emacs25 -nw'
 

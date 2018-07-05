@@ -28,6 +28,10 @@ apt_packages_unversioned:
   - tilix
   - emacs
 
+  # Utils
+  - figlet
+  - toilet
+
   # gnome
   - ubuntu-gnome-desktop
   - paper-icon-theme
@@ -76,3 +80,8 @@ pip_packages:
   - virtualenv
   - virtualenvwrapper
   - docopt
+  - flake8
+  - autoflake
+  - hy
+  - yapf
+  - pyyaml
